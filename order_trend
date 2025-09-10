@@ -1,0 +1,6 @@
+select concat(extract(year from o.created_at),"-",extract(month from o.created_at)) as order_month, count(o.order_id) as orders
+from bigquery-public-data.thelook_ecommerce.orders o
+
+group by concat(extract(year from o.created_at),"-",extract(month from o.created_at))
+order by concat(extract(year from o.created_at),"-",extract(month from o.created_at)) desc
+
